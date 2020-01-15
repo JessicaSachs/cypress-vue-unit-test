@@ -38,6 +38,7 @@
   ],
   "license": "MIT",
   "main": "dist/index.js",
+  "private": false,
   "publishConfig": {
     "registry": "http://registry.npmjs.org/"
   },
@@ -64,13 +65,15 @@
     "cy:run": "cypress run"
   },
   "release": {
-    "branches": [
-      "master",
-      {
-        "name": "feature/cypress-mount-mode",
-        "prerelease": "cypress-mount-mode"
-      }
-    ]
+    "analyzeCommits": {
+      "preset": "angular",
+      "releaseRules": [
+        {
+          "type": "break",
+          "release": "major"
+        }
+      ]
+    }
   },
   "devDependencies": {
     "@babel/cli": "7.8.4",
@@ -91,6 +94,7 @@
     "standard": "12.0.1",
     "tailwindcss": "1.1.4",
     "vue": "2.x",
+    "tailwind": "4.0.0",
     "vue-i18n": "7.8.1",
     "vue-loader": "14.2.4",
     "vue-router": "3.0.5",
